@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReceiveViewController : UIViewController, UpdateLabelTextDelegate{
+class ReceiveViewController : UIViewController{
 
   @IBOutlet weak var receiveLabel: UILabel!
 
@@ -23,16 +23,7 @@ class ReceiveViewController : UIViewController, UpdateLabelTextDelegate{
     // Dispose of any resources that can be recreated.
   }
 
-  func updateLabelText(withText text: String) {
-    receiveLabel.text = text
-  }
 
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "goToSender" {
-      let dest = segue.destination as! SendViewController
-      dest.delegate = self
-    }
-  }
 
 
 }

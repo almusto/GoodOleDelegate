@@ -8,15 +8,11 @@
 
 import UIKit
 
-protocol UpdateLabelTextDelegate {
-  func updateLabelText(withText text: String)
-}
 
 class SendViewController: UIViewController {
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var sendButton: UIButton!
 
-  var delegate: UpdateLabelTextDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +26,7 @@ class SendViewController: UIViewController {
     }
     
   @IBAction func sendTextToReceiver(_ sender: UIButton) {
-      delegate?.updateLabelText(withText: textField.text!)
-      dismiss(animated: true, completion: nil)
+
   }
 
     /*
