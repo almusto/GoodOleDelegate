@@ -8,32 +8,30 @@
 
 import UIKit
 
-class ReceiveViewController : UIViewController, UpdateLabelTextDelegate{
+class ReceiveViewController: UIViewController {
 
-  @IBOutlet weak var receiveLabel: UILabel!
+    @IBOutlet weak var receiveLabel: UILabel!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // Do any additional setup after loading the view, typically from a nib.
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-  func updateLabelText(withText text: String) {
-    receiveLabel.text = text
-  }
-
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "goToSender" {
-      let dest = segue.destination as! SendViewController
-      dest.delegate = self
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-  }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSender" {
+            let dest = segue.destination as! SendViewController
+            dest.delegate = self
+        }
+    }
+
+}
+
+//Mark:- UpdateLabel Delegate
+
+extension ReceiveViewController: UpdateLabelTextDelegate {
+
+    func updateLabelText(withText text: String) {
+        receiveLabel.text = text
+    }
 
 }
 
